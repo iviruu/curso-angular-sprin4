@@ -93,7 +93,9 @@ radios.forEach(radio => {
 imprimirAcudit();
 
 
-const url = 'https://cities-temperature.p.rapidapi.com/weather/v1?city=barcelona';
+
+function imprimirTiempo(){
+  const url = 'https://cities-temperature.p.rapidapi.com/weather/v1?city=barcelona';
 const options = {
 	method: 'GET',
 	headers: {
@@ -101,14 +103,15 @@ const options = {
 		'X-RapidAPI-Host': 'cities-temperature.p.rapidapi.com'
 	}
 };
-function imprimirTiempo(){
+  if (tiempo) tiempo.innerText= '';
   fetch(url, options)
     .then(response => response.json()) 
     .then(result => {
-      let t: Tiempo= {
-        city: result.city,
-        temperatura: `${result.temperatureC}ºC`
-      }
+      const t= 
+        `<p>City: ${result.city}</p>
+        <p>Temperatura: ${result.temperatureC}ºC</p>`
+      
+      if (tiempo) tiempo.innerHTML= t;
       
         
     })

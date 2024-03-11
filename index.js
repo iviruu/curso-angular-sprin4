@@ -78,22 +78,24 @@ radios.forEach(radio => {
     });
 });
 imprimirAcudit();
-const url = 'https://cities-temperature.p.rapidapi.com/weather/v1?city=barcelona';
-const options = {
-    method: 'GET',
-    headers: {
-        'X-RapidAPI-Key': '412bebbc46msh91487958561faddp19cb25jsn0499ee2432ba',
-        'X-RapidAPI-Host': 'cities-temperature.p.rapidapi.com'
-    }
-};
 function imprimirTiempo() {
+    const url = 'https://cities-temperature.p.rapidapi.com/weather/v1?city=barcelona';
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '412bebbc46msh91487958561faddp19cb25jsn0499ee2432ba',
+            'X-RapidAPI-Host': 'cities-temperature.p.rapidapi.com'
+        }
+    };
+    if (tiempo)
+        tiempo.innerText = '';
     fetch(url, options)
         .then(response => response.json())
         .then(result => {
-        let t = {
-            city: result.city,
-            temperatura: `${result.temperatureC}ºC`
-        };
+        const t = `<p>City: ${result.city}</p>
+        <p>Temperatura: ${result.temperatureC}ºC</p>`;
+        if (tiempo)
+            tiempo.innerHTML = t;
     })
         .catch(error => {
         console.error('Error:', error);
