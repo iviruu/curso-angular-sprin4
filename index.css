@@ -2,5 +2,27 @@
 
 
 .principal{
-    width: 60%;
+    width: 80%;
 }
+
+.fondo-img {
+    background-image: url(/img/blob.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: auto;
+    height: 800px;
+    
+}
+.icon-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .icon-button svg {
+    fill: #000; 
+    width: 24px; 
+    height: auto;
+  }
