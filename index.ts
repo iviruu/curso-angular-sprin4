@@ -126,7 +126,7 @@ if(grados && iconoClima){
   iconoClima.src= '/img/01d@2x.png';
 }
 function imprimirTiempo(){
-  const url = 'https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=c6b3b4cc42eba28a0cedcd441d7ee87a';
+  const url = 'https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=c6b3b4cc42eba28a0cedcd441d7ee87a&units=metric';
   fetch(url)
     .then(response => response.json()) 
       .then(data => {
@@ -134,13 +134,13 @@ function imprimirTiempo(){
         const temperatura = Math.round(data.main.temp);
         const condicionClima = data.weather[0].icon;
         console.log(condicionClima)
-        grados.textContent = `${temperatura/10}°C`;
+        grados.textContent = `${temperatura}°C`;
+        seleccionarIcono(condicionClima);
     })
     .catch(error => {
         console.error('Error:', error);
     });
-    function seleccionarIcono(condicionClima:any) {
-      iconoClima.src=''
+    function seleccionarIcono(condicionClima:string) {
       switch (condicionClima) {
         case '01d':
           iconoClima.src='/img/01d@2x.png';
@@ -168,7 +168,7 @@ function imprimirTiempo(){
             break;
           case '50d':
             iconoClima.src='/img/50d@2x.png';
-            break; 
+            break;
             case '01n':
               iconoClima.src='/img/01n@2x.png';
               break;
@@ -176,25 +176,25 @@ function imprimirTiempo(){
               iconoClima.src='/img/02n@2x.png';
               break;
             case '03n':
-              iconoClima.src='/img/03n@2x.png';
-              break; 
+              iconoClima.src='/img/03d@2x.png';
+              break;
             case '04n':
-              iconoClima.src='/img/04n@2x.png';
+              iconoClima.src='/img/04d@2x.png';
               break;
             case '09n':
-              iconoClima.src='/img/01d@2x.png';
+              iconoClima.src='/img/09d@2x.png';
               break;
             case '10n':
-              iconoClima.src='/img/09n@2x.png';
+              iconoClima.src='/img/10d@2x.png';
               break;
-              case '11n':
-                iconoClima.src='/img/11n@2x.png';
+            case '11n':
+              iconoClima.src='/img/11d@2x.png';
                 break;
               case '13n':
-                iconoClima.src='/img/13n@2x.png';
+                iconoClima.src='/img/13d@2x.png';
                 break;
               case '50n':
-                iconoClima.src='/img/50n@2x.png';
+                iconoClima.src='/img/50d@2x.png';
                 break;
         default:
           iconoClima.src='/img/01d@2x.png';
