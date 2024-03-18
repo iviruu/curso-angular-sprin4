@@ -35,10 +35,8 @@ Luego, instala las dependencias:
 
 ```bash
 npm install
-<<<<<<< HEAD
 
 npm install --save-dev lite-server
 
 npm start
-=======
->>>>>>> 3d527bafd143229d75b5a2517ed4c98434e2b5d3
+```
