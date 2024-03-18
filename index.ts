@@ -140,66 +140,32 @@ function imprimirTiempo(){
     .catch(error => {
         console.error('Error:', error);
     });
-    function seleccionarIcono(condicionClima:string) {
-      switch (condicionClima) {
-        case '01d':
-          iconoClima.src='/img/01d@2x.png';
-          break;
-        case '02d':
-          iconoClima.src='/img/02d@2x.png';
-          break;
-        case '03d':
-          iconoClima.src='/img/03d@2x.png';
-          break;
-        case '04d':
-          iconoClima.src='/img/04d@2x.png';
-          break;
-        case '09d':
-          iconoClima.src='/img/09d@2x.png';
-          break;
-        case '10d':
-          iconoClima.src='/img/10d@2x.png';
-          break;
-          case '11d':
-            iconoClima.src='/img/11d@2x.png';
-            break;
-          case '13d':
-            iconoClima.src='/img/13d@2x.png';
-            break;
-          case '50d':
-            iconoClima.src='/img/50d@2x.png';
-            break;
-            case '01n':
-              iconoClima.src='/img/01n@2x.png';
-              break;
-            case '02n':
-              iconoClima.src='/img/02n@2x.png';
-              break;
-            case '03n':
-              iconoClima.src='/img/03d@2x.png';
-              break;
-            case '04n':
-              iconoClima.src='/img/04d@2x.png';
-              break;
-            case '09n':
-              iconoClima.src='/img/09d@2x.png';
-              break;
-            case '10n':
-              iconoClima.src='/img/10d@2x.png';
-              break;
-            case '11n':
-              iconoClima.src='/img/11d@2x.png';
-                break;
-              case '13n':
-                iconoClima.src='/img/13d@2x.png';
-                break;
-              case '50n':
-                iconoClima.src='/img/50d@2x.png';
-                break;
-        default:
-          iconoClima.src='/img/01d@2x.png';
+    function seleccionarIcono(condicionClima: string) {
+      const mapaIconos: {[key: string]: string} = {
+        '01d': '/img/01d@2x.png',
+        '02d': '/img/02d@2x.png',
+        '03d': '/img/03d@2x.png',
+        '04d': '/img/04d@2x.png',
+        '09d': '/img/09d@2x.png',
+        '10d': '/img/10d@2x.png',
+        '11d': '/img/11d@2x.png',
+        '13d': '/img/13d@2x.png',
+        '50d': '/img/50d@2x.png',
+        '01n': '/img/01n@2x.png',
+        '02n': '/img/02n@2x.png',
+        '03n': '/img/03d@2x.png', 
+        '04n': '/img/04d@2x.png', 
+        '09n': '/img/09d@2x.png',
+        '10n': '/img/10d@2x.png',
+        '11n': '/img/11d@2x.png',
+        '13n': '/img/13d@2x.png',
+        '50n': '/img/50d@2x.png'
+      };
+    
+      if (iconoClima) {
+        iconoClima.src = mapaIconos[condicionClima] || '/img/01d@2x.png';
       }
-}
+    }
 }
 
 imprimirTiempo();
